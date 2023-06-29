@@ -1,4 +1,4 @@
-const UsuariosService = require("./services/usuarios.service.js");
+const UsuariosService = require("../services/usuarios.service.js");
 let instance = null;
 
 class UsuariosController {
@@ -45,9 +45,7 @@ class UsuariosController {
   async createUser(req, res) {
     try {
       const { user } = req.body;
-      let isRegistered = await UsuariosService.isUserRegistered(
-        user.email
-      );
+      let isRegistered = await UsuariosService.isUserRegistered(user.email);
       if (!isRegistered) {
         let newuser = await UsuariosService.createUser(user);
 

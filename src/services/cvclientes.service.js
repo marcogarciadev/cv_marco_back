@@ -1,4 +1,4 @@
-const CvclientesModel = require("./models/cvclientes");
+const CvclientesModel = require("../models/cvclientes");
 
 class CvclientesService {
   async getClient() {
@@ -13,7 +13,7 @@ class CvclientesService {
 
   async getClientById(id) {
     try {
-      let client = await CvclientesModel.findOne({_id:id});
+      let client = await CvclientesModel.findOne({ _id: id });
       return client;
     } catch (err) {
       console.error(err);
@@ -24,7 +24,7 @@ class CvclientesService {
   async isClientRegistered(email) {
     try {
       let client = await CvclientesModel.exists({ email });
-      if(client){
+      if (client) {
         return true;
       }
       return false;
@@ -38,10 +38,9 @@ class CvclientesService {
     try {
       let savedClient = await CvclientesModel.create(client);
       return savedClient;
-    
     } catch (err) {
       console.error(err);
-      throw new Error("Error in createClient Service",err);
+      throw new Error("Error in createClient Service", err);
     }
   }
 }

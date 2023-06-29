@@ -1,4 +1,4 @@
-const CvclientesService = require("./services/cvclientes.service.js");
+const CvclientesService = require("../services/cvclientes.service.js");
 let instance = null;
 
 class CvClientesController {
